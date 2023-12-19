@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: bash -c "python3 manage.py migrate && python3 manage.py runserver 0:8000"
+    volumes:
+      - .:/demo
+    container_name: django-app
+    ports:
+      - "8000:8000"
